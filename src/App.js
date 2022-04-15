@@ -2,10 +2,14 @@ import React from 'react';
 
 import './App.css';
 import { Header } from './components/Header';
+import { Form } from './screens/Form';
 
 function App() {
   return (
-    <Header />
+    <div className="App">
+      <Header />
+      <Form />
+    </div>
   );  
 }
 
