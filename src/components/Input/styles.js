@@ -1,5 +1,17 @@
 import styled from 'styled-components'
 
+export const Error = styled.small`
+  display: flex;
+  align-items: center;
+
+  > span {
+    margin-left: 5px;
+  }
+
+  font-size: 0.70rem;
+
+`
+
 export const Container = styled.div`
   position: relative;
 
@@ -7,27 +19,14 @@ export const Container = styled.div`
     width: 100%;
   }
 
+  /* char counter */
   > small {
-    display: block;
+    margin-top: 0.25rem;
     position: absolute;
-    margin-top: 0.2rem;
+    display: block;
     right: 0;
-    font-size: 0.75rem;
     color: #828D8C;
+    font-size: 0.74rem;
   }
 
-  .css-1480iag-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before,
-  .css-5xn5lu-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before{
-    border-bottom: 2px solid var(--green);
-  }
-`
-
-export const Error = styled.small`
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-
-  > span {
-    margin-left: 5px;
-  }
 `
