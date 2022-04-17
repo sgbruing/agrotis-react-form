@@ -19,14 +19,25 @@ export const Container = styled.div`
     width: 100%;
   }
 
+  /* LABEL COLOR  */
+  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #00796B !important;
+  }
+
+  /* BORDER COLOCR */
+  .css-1480iag-MuiInputBase-root-MuiInput-root:after,
+  .css-1480iag-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before {
+    border-bottom: 2px solid #00796B !important;
+  }
+
   /* char counter */
   > small {
-    margin-top: 0.25rem;
-    position: absolute;
     display: block;
+    position: absolute;
+    margin-top: 0.2rem;
     right: 0;
+    font-size: 0.75rem;
     color: #828D8C;
-    font-size: 0.74rem;
   }
 
 `

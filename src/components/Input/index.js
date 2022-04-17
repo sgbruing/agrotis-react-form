@@ -11,7 +11,7 @@ export function Input ({
   required,
   id,
   label,
-  errorText,
+  errortext,
   multiline,
   rows,
   error,
@@ -21,10 +21,10 @@ export function Input ({
   value,
 }) {
 
-  const showErrorText = () => (
+  const showerrortext = () => (
     <Error>
       <ErrorIcon fontSize="small"/>
-      <span>{errorText}</span>
+      <span>{errortext}</span>
     </Error>
   )
 
@@ -44,7 +44,7 @@ export function Input ({
             <TextField 
               id={id}
               label={`${label} ${required ? '*' : ''}`}
-              errorText={error ? showErrorText() : null}
+              errortext={error ? showerrortext() : null}
               multiline={multiline}
               rows={rows}
               error={error}
@@ -72,23 +72,23 @@ Input.defaultProps = {
   name: '',
   value: '',
   multiline: false,
-  errorText: '',
+  errortext: '',
   rows: null,
   control: {},
   id: '',
 };
 
 Input.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  errorText: PropTypes.string,
-  maxLength: PropTypes.number,
-  control: PropTypes.object,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  multiline:PropTypes.bool,
-  error: PropTypes.bool,
-  rows: PropTypes.number,
   onChange: PropTypes.func,
   required: PropTypes.bool,
+  error: PropTypes.bool,
+  label: PropTypes.string,
+  maxLength: PropTypes.number,
+  name: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  multiline:PropTypes.bool,
+  errortext: PropTypes.string,
+  rows: PropTypes.number,
+  control: PropTypes.object,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
