@@ -15,11 +15,12 @@ import { formatRFC3339 } from 'date-fns'
 export function Form() {
 
   const defaultValues = {
-    name: '',
+    nome: '',
     dataInicial: null,
     dataFinal: null,
     infosPropriedade: '',
     laboratorio: '',
+    observacoes: ''
   };
 
   const { handleSubmit, formState: { errors }, control } = useForm({ defaultValues });
@@ -46,20 +47,25 @@ const [ui, setUi] = useState({
   isSuccessAlertVisible: false
 })
 
-const onError = () => {
+const onError = (e) => {
   setUi({ isSuccessAlertVisible: false, isErrorAlertVisible: true })
+  console.log('erro: ', e)
 }
 
 const onSubmit = (data) => {
+  console.log('ss')
   const payload = {
     ...data,
     dataInicial: formatRFC3339(data.dataInicial),
     dataFinal: formatRFC3339(data.dataFinal),
-    infosPropriedade: JSON.parse(data.infosPropriedade),
+    infosPropriedade: {
+      id: JSON.parse(data.infosPropriedade).id,
+      nome: JSON.parse(data.infosPropriedade).nome
+    }, 
+    cnpj: JSON.parse(data.infosPropriedade).cnpj,
     laboratorio: JSON.parse(data.laboratorio)
   }
 
-  setUi({ isSuccessAlertVisible: true, isSuccessAlertError: false })
   console.log(payload)
 }
 
@@ -70,36 +76,36 @@ const onSubmit = (data) => {
         <Content>
           <div>
             <Input
-                id="name"
-                name="name"
+                id="nome"
+                name="nome"
                 label="Nome"
                 maxLength={40}
                 control={control}
-                error={!!errors?.name}
-                helperText={errors?.name? 'Error' : ''}
-                required
+                error={!!errors?.nome}
+                helperText={errors?.nome? 'Error' : ''}
+                required={true}
               />
               <Datepicker
-                id="initialDate"
-                name="initialDate"
+                id="dataInicial"
+                name="dataInicial"
                 label="Data inicial"
                 value={''}
                 control={control}
-                error={!!errors?.initialDate}
-                helperText={errors?.initialDate? 'Error' : ''}
+                error={false}
+                helperText={errors?.dataInicial? 'Error' : ''}
                 onChange={(value) => setMinDateFinal(value)}
-                required
+                required={true}
               />
               <Datepicker
-                id="finalDate"
-                name="finalDate"
+                id="dataFinal"
+                name="dataFinal"
                 label="Data Final"
                 value={''}
                 control={control}
-                error={!!errors?.finalDate}
-                helperText={errors?.finalDate? 'Error' : ''}
+                error={false}
+                helperText={errors?.dataFinal? 'Error' : ''}
                 minDate={minDateFinal}
-                required
+                required={true}
               />
           </div>
           <div>
@@ -126,8 +132,8 @@ const onSubmit = (data) => {
           </div>
           <div>
             <Input 
-              id="observations"
-              name="observations"
+              id="observacoes"
+              name="observacoes"
               label="Observações"
               rows={4}
               maxLength={1000}

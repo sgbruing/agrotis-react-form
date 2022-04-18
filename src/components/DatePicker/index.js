@@ -27,6 +27,7 @@ export function Datepicker({
   const handleChange = (newValue, onChangeFunc) => {
     setInternalValue(newValue)
     onChange(newValue);
+    onChangeFunc(newValue)
   }
 
   const renderHelperText = () => (
@@ -54,8 +55,8 @@ export function Datepicker({
                   <TextField 
                     variant="standard" 
                     helperText={error ? renderHelperText() : null}
-                    error={error}
                     {...params}
+                    error={error}
                   />
                 )}
               />
@@ -67,22 +68,22 @@ export function Datepicker({
   );
 }
 
-Datepicker.defaultProps = {
-  onChange: () => {},
-  minDate: null,
-  label: '',
-  control: {},
-  helperText: '',
-  required: true,
-  error: false,
-};
-
 Datepicker.propTypes = {
-  onChange: PropTypes.func,
-  minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   label: PropTypes.string,
-  control: PropTypes.object,
   required: PropTypes.bool,
+  minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  error: PropTypes.bool,
   helperText: PropTypes.string,
+  control: PropTypes.object,
+  onChange: PropTypes.func,
 };
 
+Datepicker.defaultProps = {
+  label: '',
+  required: true,
+  minDate: null,
+  error: false,
+  helperText: '',
+  control: {},
+  onChange: () => {},
+};
