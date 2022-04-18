@@ -46,7 +46,6 @@ for (let i = 1; i <= 9; i++) {
 
 const onError = (e) => {
   setEventNotice({ isOpen: true, isError: true })
-  console.log('erro: ', e)
 }
 
 const onSubmit = (data) => {
