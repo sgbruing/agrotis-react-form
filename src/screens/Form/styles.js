@@ -52,3 +52,7 @@ export const CustomOption = MuiStyled(MenuItem)(() => ({
       }
   }
 }));
+
+export const Page = styled.div`
+
+`
