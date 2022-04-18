@@ -102,8 +102,8 @@ for (let i = 1; i <= 9; i++) {
           </div>
           <div>
             <Input 
-              id="observacoes"
-              name="observacoes"
+              id="observations"
+              name="observations"
               label="Observações"
               rows={4}
               maxLength={1000}

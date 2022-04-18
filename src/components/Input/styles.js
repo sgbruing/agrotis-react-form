@@ -20,13 +20,17 @@ export const Container = styled.div`
   }
 
   /* LABEL COLOR  */
-  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused,
+  .css-5xn5lu-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before
+  {
     color: #00796B !important;
   }
 
   /* BORDER COLOCR */
   .css-1480iag-MuiInputBase-root-MuiInput-root:after,
-  .css-1480iag-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before {
+  .css-1480iag-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before,
+  .css-5xn5lu-MuiInputBase-root-MuiInput-root:after,
+  .css-5xn5lu-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before {
     border-bottom: 2px solid #00796B !important;
   }
 
