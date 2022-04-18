@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { styled as MuiStyled } from '@mui/material/styles';
+import { MenuItem } from '@mui/material';
 
 //Alterar essa parte
 
@@ -39,3 +41,14 @@ export const Content = styled.div`
   }
 
 `
+
+export const CustomOption = MuiStyled(MenuItem)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  'p': {
+      width: '100%',
+      '& + p': {
+          marginTop: '-3px'
+      }
+  }
+}));
