@@ -10,6 +10,8 @@ import { FormHeader } from '../../components/FormHeader';
 import { Input } from '../../components/Input';
 import { SelectInput } from '../../components/SelectInput';
 
+import { formatRFC3339 } from 'date-fns'
+
 export function Form() {
 
   const defaultValues = {
@@ -39,9 +41,31 @@ for (let i = 1; i <= 9; i++) {
     });
 }
   
+const [ui, setUi] = useState({
+  isErrorAlertVisible: false,
+  isSuccessAlertVisible: false
+})
+
+const onError = () => {
+  setUi({ isSuccessAlertVisible: false, isErrorAlertVisible: true })
+}
+
+const onSubmit = (data) => {
+  const payload = {
+    ...data,
+    dataInicial: formatRFC3339(data.dataInicial),
+    dataFinal: formatRFC3339(data.dataFinal),
+    infosPropriedade: JSON.parse(data.infosPropriedade),
+    laboratorio: JSON.parse(data.laboratorio)
+  }
+
+  setUi({ isSuccessAlertVisible: true, isSuccessAlertError: false })
+  console.log(payload)
+}
+
   return (
     <Container>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <FormHeader />
         <Content>
           <div>
