@@ -47,9 +47,10 @@ export function Input ({
               errortext={error ? showerrortext() : null}
               multiline={multiline}
               rows={rows}
-              error={error}
-              inputProps={{ maxLength: maxLength}}
               variant="standard"
+              error={error}
+              color="success"
+              inputProps={{ maxLength: maxLength}}
               {...field}
               onChange={(e) => handleChange(e, field.onChange)}
             />

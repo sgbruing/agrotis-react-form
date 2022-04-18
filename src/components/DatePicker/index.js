@@ -48,6 +48,7 @@ export function Datepicker({
                 id={id}
                 label={`${label} ${required ? '*' : ''}`}
                 minDate={ minDate || new Date()}
+                color="success"
                 value={internalValue}
                 onChange={(newValue) => handleChange(newValue, rest.onChange )}
                 renderInput={

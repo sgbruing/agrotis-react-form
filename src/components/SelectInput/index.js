@@ -28,6 +28,7 @@ export function SelectInput({ children, control, rules, ...props }) {
                             id={props.id}
                             value={value}
                             onChange={onChange}
+                            color="success"
                             MenuProps={MenuProps}
                             error={!!error}
                         >

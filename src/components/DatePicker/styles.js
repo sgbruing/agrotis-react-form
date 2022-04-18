@@ -8,10 +8,6 @@ export const TextField = styled(TextFieldMaterial) `
     color: #00796B !important;
   }
 
-  .css-1480iag-MuiInputBase-root-MuiInput-root:after,
-  .css-1480iag-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before {
-    border-bottom: 2px solid #00796B !important;
-  }
 
 `
 export const Error = styled.small`
